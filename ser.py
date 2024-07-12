@@ -34,9 +34,9 @@ def echo():
 
 
 @app.route('/helloold', methods=['GET'])
-def hello_world():
+def hello_worldold():
   # Simple logic to return a message
-  message = "Hello, world!"
+  message = "Hello, world old!"
 
   # Return JSON response
   return jsonify({'message': message})
