@@ -3,24 +3,30 @@ from flask import Flask, jsonify
 app = Flask(__name__)
 
 
-@app.route('/process', methods=['GET', 'POST'])
+@app.route('/hello', methods=['GET'])
 def hello_world():
-  if request.method == 'GET':
-    # Handle GET request
-    message = "Hello, world! This is a GET request."
-  elif request.method == 'POST':
-    # Handle POST request
-    data = request.get_json()
-    if data is None:
-      return jsonify({'error': 'No data provided'}), 400
-    name = data.get('name')
-    message = f"Hello, {name}! This is a POST request."
-  else:
-    # Handle unsupported methods
-    return jsonify({'error': 'Method not allowed'}), 405
+  # Simple logic to return a message
+  message = "Hello, world!"
 
   # Return JSON response
   return jsonify({'message': message})
+
+@app.route('/echo', methods=['POST'])
+def echo():
+  # Get data from request
+  data = request.get_json()
+  if data is None:
+    return jsonify({'error': 'No data provided'}), 400
+
+  # Get message from data
+  message = data.get('message')
+
+  # Process data (replace with your logic)
+  # Here, we simply echo the message back
+  echo_message = message
+
+  # Return JSON response
+  return jsonify({'echo': echo_message})
 
 
 
