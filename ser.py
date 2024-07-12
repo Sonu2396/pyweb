@@ -33,10 +33,10 @@ def echo():
 
 
 
-@app.route('/hello', methods=['GET'])
-def hello_world():
-  # Simple logic to return a message
-  message = "Hello, world!"
+#@app.route('/hello', methods=['GET'])
+#def hello_world():
+#  # Simple logic to return a message
+#  message = "Hello, world!"
 
   # Return JSON response
   return jsonify({'message': message})
