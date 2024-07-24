@@ -2,7 +2,6 @@ from flask import Flask, jsonify
 
 app = Flask(__name__)
 
-
 @app.route('/hello', methods=['GET'])
 def hello_world():
   # Simple logic to return a message
@@ -27,11 +26,6 @@ def echo():
 
   # Return JSON response
   return jsonify({'echo': echo_message})
-
-
-
-
-
 
 @app.route('/helloold', methods=['GET'])
 def hello_worldold():
