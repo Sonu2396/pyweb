@@ -1,4 +1,13 @@
 from flask import Flask, jsonify
+import base64
+import os
+
+#GOOGLE_API_KEY = os.environ["AIzaSyC2XBKaOmaMQZFK43pvy9q13fQ-8YKi2FI"]
+
+GOOGLE_API_KEY = "AIzaSyC2XBKaOmaMQZFK43pvy9q13fQ-8YKi2FI"
+
+
+import google.generativeai as genai
 
 app = Flask(__name__)
 
@@ -34,6 +43,23 @@ def hello_worldold():
 
   # Return JSON response
   return jsonify({'message': message})
+
+@app.route('/process_data', methods=['POST'])
+def process_data():
+    data = request.json
+    text = data['text']
+    base64_string = data['base64_string']
+
+    # Decode the base64 string
+    decoded_bytes = base64.b64decode(base64_string)
+    decoded_text = decoded_bytes.decode('utf-8')
+
+    # Process the text and decoded text as needed
+    # ... your processing logic here ...
+
+    return jsonify({'message': 'Data processed successfully'})
+
+
 
 if __name__ == '__main__':
   # Configure for Render deployment (optional)
