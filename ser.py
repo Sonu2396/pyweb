@@ -70,8 +70,8 @@ def process_data():
 def process_data_get():
    
     genai.configure(api_key=GOOGLE_API_KEY)
-    model = genai.GenerativeModel('gemini-pro')
-    
+    #model = genai.GenerativeModel('gemini-pro')
+    model = genai.GenerativeModel('gemini-1.5-flash')
     response = model.generate_content("Write me a poem")
     #print(response.text)
     return jsonify({'message': 'Response : ' + response.text})
