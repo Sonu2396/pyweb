@@ -64,7 +64,7 @@ def process_data():
     #print(response.text)
 
   
-    return jsonify({'message': 'Response : ' + 'response.text'})
+    return jsonify({'message': 'Response : ' + response.text})
 
 @app.route('/process_data_get', methods=['GET'])
 def process_data_get():
