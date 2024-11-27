@@ -74,7 +74,7 @@ def process_data_get():
     
     response = model.generate_content("Write me a poem")
     #print(response.text)
-    return jsonify({'message': 'Response : ' + 'response.text'})
+    return jsonify({'message': 'Response : ' + response.text})
 
 if __name__ == '__main__':
   # Configure for Render deployment (optional)
