@@ -57,7 +57,14 @@ def process_data():
     # Process the text and decoded text as needed
     # ... your processing logic here ...
 
-    return jsonify({'message': 'Data processed successfully'})
+    genai.configure(api_key=GOOGLE_API_KEY)
+    model = genai.GenerativeModel('gemini-pro')
+    
+    response = model.generate_content("Write me a poem")
+    print(response.text)
+
+  
+    return jsonify({'message': 'Response : ' + 'response.text'})
 
 
 
