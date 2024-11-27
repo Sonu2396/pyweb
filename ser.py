@@ -61,12 +61,20 @@ def process_data():
     model = genai.GenerativeModel('gemini-pro')
     
     response = model.generate_content("Write me a poem")
-    print(response.text)
+    #print(response.text)
 
   
     return jsonify({'message': 'Response : ' + 'response.text'})
 
-
+@app.route('/process_data_get', methods=['GET'])
+def process_data_get():
+   
+    genai.configure(api_key=GOOGLE_API_KEY)
+    model = genai.GenerativeModel('gemini-pro')
+    
+    response = model.generate_content("Write me a poem")
+    #print(response.text)
+    return jsonify({'message': 'Response : ' + 'response.text'})
 
 if __name__ == '__main__':
   # Configure for Render deployment (optional)
